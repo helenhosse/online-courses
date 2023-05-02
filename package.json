@@ -1,0 +1,32 @@
+{
+  "name": "online-courses",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "cd server && npm start",
+    "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "heroku-postbuild": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helenhosse/online-courses.git"
+  },
+  "author": "Helen Hosse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/helenhosse/online-courses/issues"
+  },
+  "homepage": "https://github.com/helenhosse/online-courses#readme",
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  },
+
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "if-env": "^1.0.4"
+  }
+}
